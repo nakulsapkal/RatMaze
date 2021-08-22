@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState, useRef } from "react";
+import "./App.css";
+import Maze from "./Maze.js";
 function App() {
+  const sizeAllocate = useRef(null);
+  const [size, setSize] = useState(null);
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    setSize(sizeAllocate.current.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="App-form">
+        <form onSubmit={submitForm}>
+          <label>Insert size for maze:</label>
+          <input type="text" ref={sizeAllocate} />
+          <button>SET SIZE</button>
+        </form>
+      </div>
+
+      <div className="App-Grid">
+        {size && <Maze size={size} />}
+        <p>Initial Maze</p>
+        <p>Total Paths:0</p>
+      </div>
     </div>
   );
 }
