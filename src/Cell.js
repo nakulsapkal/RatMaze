@@ -1,10 +1,8 @@
 import React from "react";
 import "./Cell.css";
 export default function Cell(props) {
-  console.log("Path", props.pathData);
-  props.pathData?.map(([data1, data2]) =>
-    console.log("pathData", data1, data2)
-  );
+  //console.log("Path", props.pathData);
+
   return (
     <>
       {props.matrix.map((rows, rowIndex) => {

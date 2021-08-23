@@ -1,6 +1,5 @@
 import React from "react";
 import "./Maze.css";
-import { Grid } from "@material-ui/core";
 import Cell from "./Cell";
 import Mice from "./mice.png";
 import cheese from "./cheese.png";
@@ -8,15 +7,17 @@ import cheese from "./cheese.png";
 export default function Maze(props) {
   let pathCount = 0;
 
-  function getRandomInt() {
-    return Math.floor(Math.random() * (5 - 1 + 1) * 1);
-  }
-
+  // function getRandomInt() {
+  //   return Math.floor(Math.random() * (5 - 1 + 1) * 1);
+  // }
+  console.log("Size:", props.size);
   let rows = 4;
   let columns = 4;
   let matrix = Array(rows)
     .fill()
     .map(() => Array(columns).fill(0));
+
+  console.log("Matrix", matrix);
   matrix[2][2] = 1;
   matrix[1][1] = 1;
   matrix[2][0] = 1;
@@ -32,7 +33,7 @@ export default function Maze(props) {
       .fill()
       .map(() => Array(columns).fill(0));
     calculatePathsUtil(matrix, visited, i, j, rows, columns, []);
-    console.log("pathCount", pathCount);
+    //console.log("pathCount", pathCount);
     return paths;
     function calculatePathsUtil(
       matrix,
@@ -65,15 +66,15 @@ export default function Maze(props) {
       currentpath.push([i + 1, j]);
       calculatePathsUtil(matrix, visited, i + 1, j, rows, columns, currentpath);
       currentpath.pop();
+
       //right
       console.log("Right:", i, j + 1, "currentPath", currentpath);
-
       currentpath.push([i, j + 1]);
       calculatePathsUtil(matrix, visited, i, j + 1, rows, columns, currentpath);
       currentpath.pop();
+
       //left
       console.log("LEFT:", i, j - 1, "currentPath", currentpath);
-
       currentpath.push([i, j - 1]);
       calculatePathsUtil(matrix, visited, i, j - 1, rows, columns, currentpath);
       currentpath.pop();

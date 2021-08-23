@@ -1,12 +1,13 @@
 .App-Grid {
   background-color: orange;
-  height: 90vmin;
+  height: 100vmin;
   display: flex;
   flex: content;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
+  align-content: space-around;
 }
 .App-form {
   background-color: cornsilk;
