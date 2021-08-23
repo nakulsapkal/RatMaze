@@ -1,6 +1,22 @@
 .cell {
   border-style: solid;
   border-color: black;
-  height: 5.3rem;
-  width: 5.3rem;
+  height: 7.2rem;
+  width: 7.2rem;
+  background-color: white;
+}
+.cell-red {
+  border-style: solid;
+  border-color: black;
+  height: 7.2rem;
+  width: 7.2rem;
+  background-color: red;
+}
+
+.cell-green {
+  border-style: solid;
+  border-color: black;
+  height: 7.2rem;
+  width: 7.2rem;
+  background-color: green;
 }

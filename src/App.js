@@ -20,11 +20,7 @@ function App() {
         </form>
       </div>
 
-      <div className="App-Grid">
-        {size && <Maze size={size} />}
-        <p>Initial Maze</p>
-        <p>Total Paths:0</p>
-      </div>
+      <div className="App-Grid">{size && <Maze size={size} />}</div>
     </div>
   );
 }
